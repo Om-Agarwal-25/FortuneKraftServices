@@ -107,7 +107,7 @@ export default function Footer(): JSX.Element {
             </div>
             <div className="flex gap-3 text-gray-400 text-sm items-center">
               <Mail size={18} className="text-gold flex-shrink-0" />
-              <span>fortunekraftconcultancy@gmail.com</span>
+              <span>fortunekraftconsultancy@gmail.com</span>
             </div>
 
             <div className="mt-4 p-4 rounded-xl bg-navy border border-white/10 flex items-start gap-3">
