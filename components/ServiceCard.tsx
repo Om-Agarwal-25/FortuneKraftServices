@@ -1,0 +1,85 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+import type { Service } from "@/types";
+
+interface ServiceCardProps {
+  service: Service;
+  onDescriptionClick: (service: Service) => void;
+  onBuyClick: (service: Service) => void;
+}
+
+export default function ServiceCard({
+  service,
+  onDescriptionClick,
+  onBuyClick,
+}: ServiceCardProps): JSX.Element {
+  return (
+    <motion.div
+      whileHover={{ y: -6 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-[16px] shadow-[0_8px_32px_rgba(10,22,40,0.10)] overflow-hidden flex flex-col border border-transparent hover:border-gold/30 transition-colors"
+    >
+      {/* Top Banner section */}
+      <div
+        className="bg-navy p-6 relative"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg, rgba(240,165,0,0.03) 0px, rgba(240,165,0,0.03) 2px, transparent 2px, transparent 10px)",
+        }}
+      >
+        {service.tag && (
+          <div className="absolute top-0 right-0 overflow-hidden w-28 h-28 pointer-events-none">
+            <div className="absolute top-[28px] -right-[28px] w-[140px] bg-gold text-navy text-[10px] uppercase font-bold text-center py-1 transform rotate-45 shadow-md">
+              {service.tag}
+            </div>
+          </div>
+        )}
+        <div className="inline-block bg-gold px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-navy mb-4">
+          {service.category}
+        </div>
+        <h3 className="text-white font-display text-2xl font-bold mb-1 mr-8">
+          {service.title}
+        </h3>
+        <p className="text-gold/80 text-sm">{service.duration}</p>
+      </div>
+
+      {/* Body section */}
+      <div className="p-6 flex-grow flex flex-col">
+        <div className="mb-6">
+          <span className="text-4xl text-navy font-display font-bold">
+            {service.price}
+          </span>
+        </div>
+
+        <ul className="space-y-3 mb-8 flex-grow">
+          {service.features.map((feature, idx) => (
+            <li key={idx} className="flex gap-3 text-sm text-navy/80">
+              <Check size={18} className="text-gold flex-shrink-0 mt-0.5" />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Actions */}
+        <div className="space-y-3 mt-auto">
+          <button
+            onClick={() => onBuyClick(service)}
+            className="w-full bg-gold hover:bg-gold-light text-navy font-bold py-3.5 rounded-xl transition-colors text-sm"
+          >
+            Buy Now
+          </button>
+          <button
+            onClick={() => onDescriptionClick(service)}
+            className="w-full bg-navy hover:bg-navy-light text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
+          >
+            View Description
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
