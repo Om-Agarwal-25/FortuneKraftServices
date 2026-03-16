@@ -1,5 +1,5 @@
 import { Resend } from 'resend'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import type { ContactFormData, ApiSuccessResponse, ApiErrorResponse } from '@/types'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -10,7 +10,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     const { name, email, phone, subject, message } = body
 
     if (!name?.trim() || !email?.trim() || !message?.trim()) {
-      return Response.json<ApiErrorResponse>(
+      return NextResponse.json<ApiErrorResponse>(
         { error: 'Required fields missing' },
         { status: 400 }
       )
@@ -56,11 +56,11 @@ export async function POST(request: NextRequest): Promise<Response> {
       `,
     })
 
-    return Response.json<ApiSuccessResponse>({ success: true })
+    return NextResponse.json<ApiSuccessResponse>({ success: true })
 
   } catch (error) {
     console.error('Contact API error:', error instanceof Error ? error.message : error)
-    return Response.json<ApiErrorResponse>(
+    return NextResponse.json<ApiErrorResponse>(
       { error: 'Failed to send message' },
       { status: 500 }
     )
