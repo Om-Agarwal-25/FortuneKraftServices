@@ -7,7 +7,6 @@ import type { Service, ServiceCategory, ModalMode } from '@/types'
 import { services } from '@/lib/servicesData'
 import ServiceCard from '@/components/ServiceCard'
 import ServiceModal from '@/components/ServiceModal'
-import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
 const CATEGORIES: ServiceCategory[] = ['All', 'Equity Research', 'Market insights', 'Investment recommendations', 'Demo']
