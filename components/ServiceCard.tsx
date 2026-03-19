@@ -23,6 +23,11 @@ export default function ServiceCard({
       viewport={{ once: true }}
       className="bg-white rounded-[16px] shadow-[0_8px_32px_rgba(10,22,40,0.10)] overflow-hidden flex flex-col border border-transparent hover:border-gold/30 transition-colors"
     >
+      {/* Dynamic Top Strip */}
+      {service.title.startsWith('Intraday') && <div className="h-2 w-full bg-gold" />}
+      {service.title.startsWith('BTST') && <div className="h-2 w-full bg-[#FFD166]" />}
+      {service.title.startsWith('Positional') && <div className="h-2 w-full bg-[#1a3a5c] border-t border-gold" />}
+
       {/* Top Banner section */}
       <div
         className="bg-navy p-6 relative"
@@ -39,7 +44,7 @@ export default function ServiceCard({
           </div>
         )}
         <div className="inline-block bg-gold px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-navy mb-4">
-          {service.category}
+          {service.title.split(' — ')[0]}
         </div>
         <h3 className="text-white font-display text-2xl font-bold mb-1 mr-8">
           {service.title}

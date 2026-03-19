@@ -1,7 +1,7 @@
 export interface Service {
   id: string
   title: string
-  category: 'Equity Research' | 'Market insights' | 'Investment recommendations' | 'Demo'
+  category: 'Equity Cash' | 'Equity Premium' | 'F&O' | 'Demo'
   duration: string
   price: string
   tag: 'Most Popular' | 'Best Value' | 'Free Trial' | null
@@ -35,9 +35,7 @@ export type ContactSubject =
   | 'Lodge a Complaint'
   | 'Partnership Opportunity'
   | 'Technical Support'
-
-export type ServiceCategory = 'All' | 'Equity Research' | 'Market insights' | 'Investment recommendations' | 'Demo'
-
+export type ServiceCategory = 'All' | 'Intraday Alpha' | 'BTST Alpha' | 'Positional Alpha'
 export type ModalMode = 'description' | 'buy'
 
 export interface NavLink {

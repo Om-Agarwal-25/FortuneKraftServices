@@ -13,9 +13,8 @@ import {
   BarChart2,
   CheckCircle2,
   ChevronRight,
-  Activity,
-  PieChart,
-  LineChart,
+  Zap,
+  Moon,
 } from "lucide-react";
 import type { Testimonial, Stat, WhyChooseCard } from "@/types";
 const StatsCounter = dynamic(() => import("@/components/StatsCounter"), { ssr: false });
@@ -252,25 +251,22 @@ export default function Home(): JSX.Element {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Equity Research",
-                desc: "High momentum intraday and short-term delivery calls in NSE cash segment.",
-                icon: (
-                  <Activity size={48} className="text-gold mb-8 stroke-1" />
-                ),
+                title: 'Intraday Alpha',
+                desc: 'Cash-market intraday advisory with 1–2 high-conviction trade ideas daily. Same day exit — no overnight risk.',
+                icon: <Zap size={48} className="text-gold mb-8 stroke-1" />,
+                tab: 'Intraday Alpha',
               },
               {
-                title: "Market insights",
-                desc: "Strategic Nifty/BankNifty index options and stock futures recommendations.",
-                icon: (
-                  <PieChart size={48} className="text-gold mb-8 stroke-1" />
-                ),
+                title: 'BTST Alpha',
+                desc: 'Buy Today Sell Tomorrow advisory capturing overnight momentum. 1 trade daily, issued between 2:45–3:15 PM.',
+                icon: <Moon size={48} className="text-gold mb-8 stroke-1" />,
+                tab: 'BTST Alpha',
               },
               {
-                title: "Investment recommendations",
-                desc: "Exclusive holding recommendations with deep fundamental analysis.",
-                icon: (
-                  <LineChart size={48} className="text-gold mb-8 stroke-1" />
-                ),
+                title: 'Positional Alpha',
+                desc: 'Short-term positional advisory for meaningful trend captures. 3–4 quality trades per month, held for ~2 weeks.',
+                icon: <TrendingUp size={48} className="text-gold mb-8 stroke-1" />,
+                tab: 'Positional Alpha',
               },
             ].map((srv, i) => (
               <AnimatedServicePreview key={srv.title} index={i}>
@@ -282,7 +278,7 @@ export default function Home(): JSX.Element {
                   {srv.desc}
                 </p>
                 <Link
-                  href={`/services?tab=${srv.title}`}
+                  href={`/services?tab=${srv.tab}`}
                   className="text-gold font-medium flex items-center gap-2 group relative z-10 inline-flex"
                 >
                   Learn More{" "}

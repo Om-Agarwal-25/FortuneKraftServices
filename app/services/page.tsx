@@ -8,8 +8,9 @@ import { services } from '@/lib/servicesData'
 import ServiceCard from '@/components/ServiceCard'
 import ServiceModal from '@/components/ServiceModal'
 import Link from 'next/link'
+import { Zap, Moon, TrendingUp } from 'lucide-react'
 
-const CATEGORIES: ServiceCategory[] = ['All', 'Equity Research', 'Market insights', 'Investment recommendations', 'Demo']
+const CATEGORIES: ServiceCategory[] = ['All', 'Intraday Alpha', 'BTST Alpha', 'Positional Alpha']
 
 function ServicesContent(): JSX.Element {
   const searchParams = useSearchParams()
@@ -27,7 +28,7 @@ function ServicesContent(): JSX.Element {
 
   const filteredServices: Service[] = activeCategory === 'All'
     ? services
-    : services.filter((s) => s.category === activeCategory)
+    : services.filter((s) => s.title.startsWith(activeCategory))
 
   const handleDescriptionClick = (service: Service): void => {
     setModalMode('description')
@@ -55,6 +56,84 @@ function ServicesContent(): JSX.Element {
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6">Our Services</h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">Explore our tailored advisory plans, designed to match your trading style and risk appetite.</p>
+        </div>
+      </section>
+
+      {/* OVERVIEW SECTION */}
+      <section className="bg-[#F8F9FA] py-16 -mt-8 relative z-20">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Intraday Alpha Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+              className="bg-[#0A1628] rounded-2xl p-8 border-t-[4px] border-t-gold shadow-lg flex flex-col"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <Zap size={40} className="text-gold" />
+                <span className="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Same Day Exit</span>
+              </div>
+              <h3 className="text-white font-display text-2xl font-bold mb-4">Intraday Alpha</h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
+                Cash-market intraday advisory for active traders. Capture short-term opportunities within the same trading day with 1–2 high-conviction trade ideas daily.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">1–2 Trades/Day</span>
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">Same Day Exit</span>
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">WhatsApp Alerts</span>
+              </div>
+            </motion.div>
+
+            {/* BTST Alpha Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="bg-[#0A1628] rounded-2xl p-8 border-t-[4px] border-t-gold shadow-lg flex flex-col"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <Moon size={40} className="text-gold" />
+                <span className="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Overnight Momentum</span>
+              </div>
+              <h3 className="text-white font-display text-2xl font-bold mb-4">BTST Alpha</h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
+                Buy Today Sell Tomorrow advisory for traders seeking overnight momentum opportunities. 1 high-conviction trade issued daily between 2:45–3:15 PM.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">1 Trade/Day</span>
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">Exit Next Morning</span>
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">WhatsApp Alerts</span>
+              </div>
+            </motion.div>
+
+            {/* Positional Alpha Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.02 }}
+              className="bg-[#0A1628] rounded-2xl p-8 border-t-[4px] border-t-gold shadow-lg flex flex-col"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <TrendingUp size={40} className="text-gold" />
+                <span className="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">2 Week Holding</span>
+              </div>
+              <h3 className="text-white font-display text-2xl font-bold mb-4">Positional Alpha</h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
+                Short-term positional advisory for traders who prefer holding stocks for days to weeks. 3–4 carefully researched opportunities per month.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">3–4 Trades/Month</span>
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">~2 Week Hold</span>
+                <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">WhatsApp Alerts</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

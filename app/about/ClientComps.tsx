@@ -126,7 +126,7 @@ export function StatsSection() {
     { value: '10000', label: 'Active Investors Served', suffix: '+' },
     { value: '95', label: 'Call Accuracy Rate', suffix: '%' },
     { value: '8', label: 'Years in the Market', suffix: '+' },
-    { value: '50000', label: 'Successful Trade Calls', suffix: '+' },
+    { value: '3', label: 'Premium Services', suffix: '' },
   ]
   
   return (
