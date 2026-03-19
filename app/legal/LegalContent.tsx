@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const GMAIL_LINK =
-  "https://mail.google.com/mail/?view=cm&to=foturnkraftconsultancy@gmail.com";
+  "https://mail.google.com/mail/?view=cm&to=fortunekraftconsultancy@gmail.com";
 
 type NavItem = {
   id: string;
@@ -414,7 +414,7 @@ export default function LegalContent(): JSX.Element {
                           rel="noopener noreferrer"
                           className="text-[#0A1628] font-semibold hover:text-gold"
                         >
-                          foturnkraftconsultancy@gmail.com
+                          fortunekraftconsultancy@gmail.com
                         </a>
                       </p>
                     </div>

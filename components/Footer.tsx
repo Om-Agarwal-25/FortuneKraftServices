@@ -150,12 +150,12 @@ export default function Footer(): JSX.Element {
             <div className="flex gap-3 text-gray-400 text-sm items-center">
               <Mail size={18} className="text-gold flex-shrink-0" />
               <a
-                href="https://mail.google.com/mail/?view=cm&to=foturnkraftconsultancy@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&to=fortunekraftconsultancy@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold transition-colors"
               >
-                foturnkraftconsultancy@gmail.com
+                fortunekraftconsultancy@gmail.com
               </a>
             </div>
 

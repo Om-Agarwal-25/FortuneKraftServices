@@ -78,9 +78,9 @@ export default function RefundPolicyPage() {
               <Phone className="w-5 h-5 text-[#F0A500]" />
               +91 7030151276
             </a>
-            <a href="https://mail.google.com/mail/?view=cm&to=foturnkraftconsultancy@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#0A1628] hover:text-[#F0A500] transition-colors font-medium bg-[#F8F9FA] px-6 py-3 rounded-full border border-gray-100">
+            <a href="https://mail.google.com/mail/?view=cm&to=fortunekraftconsultancy@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#0A1628] hover:text-[#F0A500] transition-colors font-medium bg-[#F8F9FA] px-6 py-3 rounded-full border border-gray-100">
               <Mail className="w-5 h-5 text-[#F0A500]" />
-              foturnkraftconsultancy@gmail.com
+              fortunekraftconsultancy@gmail.com
             </a>
           </div>
         </div>

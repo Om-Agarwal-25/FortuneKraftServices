@@ -108,7 +108,7 @@ export default function ContactPage() {
 
                   {/* Email */}
                   <a
-                    href="https://mail.google.com/mail/?view=cm&to=fortunekraftconcultancy@gmail.com"
+                    href="https://mail.google.com/mail/?view=cm&to=fortunekraftconsultancy@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-5 group cursor-pointer transition-all hover:-translate-y-1"
@@ -121,7 +121,7 @@ export default function ContactPage() {
                         Email
                       </p>
                       <p className="text-white font-bold text-lg group-hover:text-gold transition-colors">
-                        fortunekraftconcultancy@gmail.com
+                        fortunekraftconsultancy@gmail.com
                       </p>
                     </div>
                   </a>
