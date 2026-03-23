@@ -31,13 +31,13 @@ const WHY_CHOOSE_CARDS: WhyChooseCard[] = [
     icon: "TrendingUp",
     title: "SEBI Registered",
     description:
-      "Fully compliant with SEBI regulations, ensuring transparent and trustworthy advisory services.",
+      "Fully compliant with SEBI regulations, ensuring transparent and trustworthy research services.",
   },
   {
     icon: "Target",
-    title: "High Accuracy Calls",
+    title: "Research-Backed Calls",
     description:
-      "Our research-backed calls deliver consistent results with a 95%+ accuracy track record.",
+      "Our structured research methodology identifies high-potential trade setups backed by technical analysis.",
   },
   {
     icon: "Shield",
@@ -55,7 +55,7 @@ const WHY_CHOOSE_CARDS: WhyChooseCard[] = [
     icon: "Users",
     title: "10,000+ Happy Clients",
     description:
-      "A growing community of investors who have transformed their portfolios with our guidance.",
+      "A growing community of investors who have benefited from our research guidance.",
   },
   {
     icon: "BarChart2",
@@ -67,9 +67,9 @@ const WHY_CHOOSE_CARDS: WhyChooseCard[] = [
 
 const STATS: Stat[] = [
   { value: "10K+", label: "Active Traders Enrolled" },
-  { value: "95%", label: "Average Accuracy Rate" },
+  { value: "3", label: "Premium Services" },
   { value: "50M+", label: "Wealth Crafted (INR)" },
-  { value: "24/7", label: "Dedicated Support" },
+  { value: "21", label: "Day Grievance Resolution" },
 ];
 
 const TESTIMONIALS: Testimonial[] = [
@@ -141,8 +141,8 @@ export default function Home(): JSX.Element {
                 Craft Your <span className="text-gradient">Financial</span> Future
               </h1>
               <p className="font-sans text-lg text-gray-300 max-w-[600px] mb-8 leading-relaxed">
-                FortuneKraft Consultancy delivers expert equity research,
-                high-accuracy trade calls, and real-time alerts to help you navigate
+                FortuneKraft Consultancy delivers equity research,
+                research-backed trade calls, and real-time alerts to help you navigate
                 Indian markets with confidence.
               </p>
 
@@ -151,11 +151,11 @@ export default function Home(): JSX.Element {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 mt-16 pt-8 border-t border-white/10 w-full max-w-3xl">
                 <div className="flex items-center gap-2 text-white">
                   <CheckCircle2 className="text-gold" size={20} />
-                  <span className="text-sm font-medium">95%+ Accuracy</span>
+                  <span className="text-sm font-medium">SEBI Registered</span>
                 </div>
                 <div className="flex items-center gap-2 text-white">
                   <CheckCircle2 className="text-gold" size={20} />
-                  <span className="text-sm font-medium">SEBI Regulated</span>
+                  <span className="text-sm font-medium">Research-Backed Calls</span>
                 </div>
                 <div className="flex items-center gap-2 text-white">
                   <CheckCircle2 className="text-gold" size={20} />
@@ -232,7 +232,7 @@ export default function Home(): JSX.Element {
                 Our Elite Services
               </h2>
               <p className="text-gray-600 max-w-xl">
-                Tailored advisory plans designed for different trading styles
+                Research service plans designed for different trading styles
                 and risk appetites.
               </p>
             </div>
@@ -252,19 +252,19 @@ export default function Home(): JSX.Element {
             {[
               {
                 title: 'Intraday Alpha',
-                desc: 'Cash-market intraday advisory with 1–2 high-conviction trade ideas daily. Same day exit — no overnight risk.',
+                desc: 'Cash-market intraday research service with 1–2 research-backed trade ideas daily. Same day exit — no overnight risk.',
                 icon: <Zap size={48} className="text-gold mb-8 stroke-1" />,
                 tab: 'Intraday Alpha',
               },
               {
                 title: 'BTST Alpha',
-                desc: 'Buy Today Sell Tomorrow advisory capturing overnight momentum. 1 trade daily, issued between 2:45–3:15 PM.',
+                desc: 'Buy Today Sell Tomorrow research service capturing overnight momentum. 1 trade daily, issued between 2:45–3:15 PM.',
                 icon: <Moon size={48} className="text-gold mb-8 stroke-1" />,
                 tab: 'BTST Alpha',
               },
               {
                 title: 'Positional Alpha',
-                desc: 'Short-term positional advisory for meaningful trend captures. 3–4 quality trades per month, held for ~2 weeks.',
+                desc: 'Short-term positional research service for meaningful trend captures. 3–4 quality trades per month, held for ~2 weeks.',
                 icon: <TrendingUp size={48} className="text-gold mb-8 stroke-1" />,
                 tab: 'Positional Alpha',
               },
@@ -308,7 +308,7 @@ export default function Home(): JSX.Element {
                 {
                   step: "01",
                   title: "Choose a Plan",
-                  desc: "Select an advisory service that matches your capital and risk profile.",
+                  desc: "Select a research service that matches your capital and risk profile.",
                 },
                 {
                   step: "02",
@@ -410,18 +410,18 @@ export default function Home(): JSX.Element {
             Ready to Transform Your Trading?
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
-            Join India&apos;s most trusted SEBI registered advisory and start
+            Join India&apos;s most trusted SEBI registered research firm and start
             your journey towards disciplined wealth creation today.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/services">
               <button className="bg-gold text-navy font-bold px-8 py-4 rounded-full w-full sm:w-auto hover:bg-gold-light transition-colors">
-                View Advisory Plans
+                View Research Plans
               </button>
             </Link>
             <Link href="/contact">
               <button className="bg-transparent border border-white/20 text-white font-bold px-8 py-4 rounded-full w-full sm:w-auto hover:bg-white/5 transition-colors">
-                Contact an Expert
+                Contact Our Team
               </button>
             </Link>
           </div>

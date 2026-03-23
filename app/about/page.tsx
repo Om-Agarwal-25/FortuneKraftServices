@@ -84,13 +84,13 @@ export default function AboutPage() {
 
             <div className="flex flex-col gap-6 text-[#2A3B54] text-base leading-relaxed">
               <p>
-                FortuneKraft Consultancy was founded in 2019 by a team of seasoned market veterans with a combined experience of over 20 years in Indian equity markets. What started as a small advisory practice in Mumbai has grown into one of India&apos;s most trusted SEBI-registered research analyst firms.
+                FortuneKraft Consultancy was founded in 2019 by a team of seasoned market veterans with a combined experience of over 20 years in Indian equity markets. What started as a small research practice has grown into one of India&apos;s most trusted SEBI-registered research analyst firms.
               </p>
               <p>
                 Our founders witnessed firsthand how retail investors struggled to navigate the complexities of the stock market without reliable, research-backed guidance. FortuneKraft was built to bridge that gap — delivering institutional-quality research to everyday investors at an accessible price.
               </p>
               <p>
-                Today, we serve over 10,000 active clients across India, with a proven track record of 95%+ call accuracy and a commitment to transparency, compliance, and client success that has never wavered.
+                Today, we serve over 10,000 active clients across India, with a commitment to transparency, compliance, and disciplined research-backed recommendations that has never wavered.
               </p>
             </div>
           </ClientComps.SlideIn>

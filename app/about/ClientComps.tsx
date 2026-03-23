@@ -124,7 +124,7 @@ export function CheckFeature({ title, description }: { title: string, descriptio
 export function StatsSection() {
   const stats = [
     { value: '10000', label: 'Active Investors Served', suffix: '+' },
-    { value: '95', label: 'Call Accuracy Rate', suffix: '%' },
+    { value: '21', label: 'Day Grievance Resolution', suffix: '' },
     { value: '8', label: 'Years in the Market', suffix: '+' },
     { value: '3', label: 'Premium Services', suffix: '' },
   ]

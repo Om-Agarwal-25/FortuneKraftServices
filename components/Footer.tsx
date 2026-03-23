@@ -19,6 +19,8 @@ const USEFUL_LINKS: NavLink[] = [
   { label: 'Research Analyst Registration', href: '/research-analyst-registration' },
   { label: 'Terms and Conditions', href: '/terms-and-conditions' },
   { label: 'Refund Policy', href: '/refund-policy' },
+  { label: 'Complaint Table', href: '/complaint-table' },
+  { label: 'Payment Information', href: '/payment-info' },
 ];
 
 const SERVICE_LINKS: NavLink[] = [

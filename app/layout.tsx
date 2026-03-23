@@ -18,11 +18,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "FortuneKraft Consultancy | SEBI Registered Research Analyst",
   description:
-    "FortuneKraft Consultancy — SEBI registered equity research and stock market advisory. Expert trade calls, real-time alerts, and proven accuracy.",
+    "FortuneKraft Consultancy — SEBI registered equity research and stock market research services. Research-backed trade calls, real-time alerts, and disciplined analysis.",
   openGraph: {
     title: "FortuneKraft Consultancy",
     description:
-      "SEBI Registered Research Analyst — Expert equity advisory for Indian markets.",
+      "SEBI Registered Research Analyst — Equity research and recommendations for Indian markets.",
     type: "website",
   },
 };

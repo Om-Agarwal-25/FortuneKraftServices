@@ -28,7 +28,7 @@ export const serviceDescriptions: Record<string, ServiceDescription> = {
     id: 'intraday-alpha',
     title: 'Intraday Alpha',
     tagline: 'Smart Opportunities for Active Traders',
-    overview: 'Intraday Alpha is a cash-market intraday trading advisory offered by FortuneKraft Consultancy, designed for traders looking to capture short-term opportunities within the same trading day. Our experienced research professionals analyze market movements using structured technical methods to identify high-potential trading setups. The objective of this service is to help traders act quickly on well-researched opportunities and potentially improve trading efficiency through disciplined execution.',
+    overview: 'Intraday Alpha is a cash-market intraday trading research service offered by FortuneKraft Consultancy, designed for traders looking to capture short-term opportunities within the same trading day. Our experienced research professionals analyze market movements using structured technical methods to identify high-potential trading setups. The objective of this service is to help traders act quickly on well-researched opportunities and potentially improve trading efficiency through disciplined execution.',
     whyChoose: [
       {
         title: 'Advanced Technical Research',
@@ -151,7 +151,7 @@ export const serviceDescriptions: Record<string, ServiceDescription> = {
     id: 'positional-alpha',
     title: 'Positional Alpha',
     tagline: 'Capture Short-Term Market Trends with Strategic Trades',
-    overview: 'Positional Alpha by FortuneKraft Consultancy is a positional trading advisory service designed for traders and investors who want to benefit from short-term market trends without the pressure of daily trading. Unlike intraday strategies, positional trading focuses on holding stocks for several days to a few weeks to capture meaningful price movements. This service identifies potential opportunities using a combination of technical analysis, market structure evaluation, and momentum indicators. The objective is to help traders participate in emerging trends while following disciplined entry and exit strategies supported by research-driven insights.',
+    overview: 'Positional Alpha by FortuneKraft Consultancy is a positional trading research service designed for traders and investors who want to benefit from short-term market trends without the pressure of daily trading. Unlike intraday strategies, positional trading focuses on holding stocks for several days to a few weeks to capture meaningful price movements. This service identifies potential opportunities using a combination of technical analysis, market structure evaluation, and momentum indicators. The objective is to help traders participate in emerging trends while following disciplined entry and exit strategies supported by research-driven insights.',
     whyChoose: [
       {
         title: 'Designed for Short-Term Trend Trading',

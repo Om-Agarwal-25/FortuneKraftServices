@@ -45,7 +45,7 @@ export default function InvestorCharterPage() {
 
       {/* SECTION 2 - CONTENT */}
       <section className="py-20 lg:py-28 container mx-auto px-6 max-w-[900px]">
-        
+
         {/* Vision & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           <MotionSection className="bg-[#0A1628] rounded-2xl p-10 relative overflow-hidden shadow-xl flex flex-col items-start h-full">
@@ -54,7 +54,7 @@ export default function InvestorCharterPage() {
             </div>
             <h3 className="font-display text-2xl text-white font-bold mb-4">Vision</h3>
             <p className="text-gray-300 text-base leading-relaxed">
-              Invest with knowledge & safety.
+              To redefine how investors engage with financial markets through clarity, discipline, and research-led thinking.
             </p>
           </MotionSection>
 
@@ -66,7 +66,7 @@ export default function InvestorCharterPage() {
             </div>
             <h3 className="font-display text-2xl text-[#0A1628] font-bold mb-4">Mission</h3>
             <p className="text-[#0A1628]/80 text-base leading-relaxed font-medium">
-              Every investor should be able to invest in right investment products based on their needs, manage and monitor them to meet their goals, access reports and enjoy financial wellness.
+              To cut through market noise and deliver clear, high-conviction research that enables investors to act with confidence and control.
             </p>
           </MotionSection>
         </div>
@@ -115,7 +115,7 @@ export default function InvestorCharterPage() {
         <MotionSection delay={0.1} className="mb-20">
           <h2 className="font-display text-3xl text-[#0A1628] font-bold mb-4">Grievance Redressal Mechanism</h2>
           <div className="w-16 h-1 bg-gold mb-8 rounded-full" />
-          
+
           <div className="bg-[#0A1628] rounded-xl p-8 mb-8 border-l-4 border-gold shadow-lg">
             <p className="text-white text-lg leading-relaxed font-medium">
               In case of any grievance / complaint, an investor should approach the concerned Research Analyst and shall ensure that the grievance is resolved within 30 days.
@@ -142,7 +142,7 @@ export default function InvestorCharterPage() {
         <MotionSection delay={0.1}>
           <h2 className="font-display text-3xl text-[#0A1628] font-bold mb-4">Responsibilities of Investors</h2>
           <div className="w-16 h-1 bg-gold mb-10 rounded-full" />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Do's Card */}
             <div className="bg-[#0A1628] rounded-2xl p-8 lg:p-10 shadow-xl border-t-4 border-green-500">

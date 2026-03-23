@@ -9,7 +9,7 @@ export const services: Service[] = [
     duration: '1 Month',
     price: '₹5,000',
     tag: 'Most Popular',
-    description: 'Intraday Alpha is a cash-market intraday trading advisory designed for traders looking to capture short-term opportunities within the same trading day. Our research professionals analyze market movements using structured technical methods to identify high-potential trading setups.',
+    description: 'Intraday Alpha is a cash-market intraday trading research service designed for traders looking to capture short-term opportunities within the same trading day. Our research professionals analyze market movements using structured technical methods to identify high-potential trading setups.',
     features: [
       '1–2 intraday trades per day',
       'Same day exit — no overnight risk',
@@ -27,7 +27,7 @@ export const services: Service[] = [
     duration: '3 Months',
     price: '₹12,000',
     tag: 'Best Value',
-    description: 'Intraday Alpha is a cash-market intraday trading advisory designed for traders looking to capture short-term opportunities within the same trading day. Our research professionals analyze market movements using structured technical methods to identify high-potential trading setups.',
+    description: 'Intraday Alpha is a cash-market intraday trading research service designed for traders looking to capture short-term opportunities within the same trading day. Our research professionals analyze market movements using structured technical methods to identify high-potential trading setups.',
     features: [
       '1–2 intraday trades per day',
       'Same day exit — no overnight risk',
@@ -45,7 +45,7 @@ export const services: Service[] = [
     duration: '12 Months',
     price: '₹36,000',
     tag: null,
-    description: 'Intraday Alpha is a cash-market intraday trading advisory designed for traders looking to capture short-term opportunities within the same trading day. Our research professionals analyze market movements using structured technical methods to identify high-potential trading setups.',
+    description: 'Intraday Alpha is a cash-market intraday trading research service designed for traders looking to capture short-term opportunities within the same trading day. Our research professionals analyze market movements using structured technical methods to identify high-potential trading setups.',
     features: [
       '1–2 intraday trades per day',
       'Same day exit — no overnight risk',
@@ -121,7 +121,7 @@ export const services: Service[] = [
     duration: '1 Month',
     price: '₹6,000',
     tag: null,
-    description: 'Positional Alpha is a positional trading advisory designed for traders who want to benefit from short-term market trends without the pressure of daily trading. Hold stocks for several days to a few weeks to capture meaningful price movements.',
+    description: 'Positional Alpha is a positional trading research service designed for traders who want to benefit from short-term market trends without the pressure of daily trading. Hold stocks for several days to a few weeks to capture meaningful price movements.',
     features: [
       '3–4 trades per month',
       'Holding period approx. 2 weeks',
@@ -139,7 +139,7 @@ export const services: Service[] = [
     duration: '3 Months',
     price: '₹15,000',
     tag: 'Best Value',
-    description: 'Positional Alpha is a positional trading advisory designed for traders who want to benefit from short-term market trends without the pressure of daily trading. Hold stocks for several days to a few weeks to capture meaningful price movements.',
+    description: 'Positional Alpha is a positional trading research service designed for traders who want to benefit from short-term market trends without the pressure of daily trading. Hold stocks for several days to a few weeks to capture meaningful price movements.',
     features: [
       '3–4 trades per month',
       'Holding period approx. 2 weeks',
@@ -157,7 +157,7 @@ export const services: Service[] = [
     duration: '12 Months',
     price: '₹48,000',
     tag: null,
-    description: 'Positional Alpha is a positional trading advisory designed for traders who want to benefit from short-term market trends without the pressure of daily trading. Hold stocks for several days to a few weeks to capture meaningful price movements.',
+    description: 'Positional Alpha is a positional trading research service designed for traders who want to benefit from short-term market trends without the pressure of daily trading. Hold stocks for several days to a few weeks to capture meaningful price movements.',
     features: [
       '3–4 trades per month',
       'Holding period approx. 2 weeks',

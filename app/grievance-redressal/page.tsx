@@ -9,11 +9,46 @@ export const metadata: Metadata = {
 
 export default function GrievanceRedressalPage() {
   const escalationList = [
-    { designation: "Customer Care", hours: "Mon–Fri, 10:00 AM – 6:00 PM" },
-    { designation: "Head of Customer Care", hours: "Mon–Fri, 10:00 AM – 6:00 PM" },
-    { designation: "Compliance Officer", hours: "Mon–Fri, 10:00 AM – 6:00 PM" },
-    { designation: "CEO", hours: "Mon–Fri, 10:00 AM – 6:00 PM" },
-    { designation: "Principal Officer", hours: "Mon–Fri, 10:00 AM – 6:00 PM" }
+    {
+      designation: 'Customer Care',
+      contactPerson: 'Ritesh Agarwal',
+      officeAddress: 'Flat No B-1106, Urban Space Phase 1, Survey No 25, NIBM Road, Mohammadwadi, Haveli, Pune, Maharashtra, 411060',
+      contactNo: '+91 7030151276',
+      emailId: 'support@fortunekraftconsultancy.com',
+      workingHours: 'Mon–Fri, 10:00 AM – 6:00 PM',
+    },
+    {
+      designation: 'Head of Customer Care',
+      contactPerson: 'Ritesh Agarwal',
+      officeAddress: 'Flat No B-1106, Urban Space Phase 1, Survey No 25, NIBM Road, Mohammadwadi, Haveli, Pune, Maharashtra, 411060',
+      contactNo: '+91 7030151276',
+      emailId: 'support@fortunekraftconsultancy.com',
+      workingHours: 'Mon–Fri, 10:00 AM – 6:00 PM',
+    },
+    {
+      designation: 'Compliance Officer',
+      contactPerson: 'Ritesh Agarwal',
+      officeAddress: 'Flat No B-1106, Urban Space Phase 1, Survey No 25, NIBM Road, Mohammadwadi, Haveli, Pune, Maharashtra, 411060',
+      contactNo: '+91 7030151276',
+      emailId: 'support@fortunekraftconsultancy.com',
+      workingHours: 'Mon–Fri, 10:00 AM – 6:00 PM',
+    },
+    {
+      designation: 'CEO',
+      contactPerson: 'Ritesh Agarwal',
+      officeAddress: 'Flat No B-1106, Urban Space Phase 1, Survey No 25, NIBM Road, Mohammadwadi, Haveli, Pune, Maharashtra, 411060',
+      contactNo: '+91 7030151276',
+      emailId: 'support@fortunekraftconsultancy.com',
+      workingHours: 'Mon–Fri, 10:00 AM – 6:00 PM',
+    },
+    {
+      designation: 'Principal Officer',
+      contactPerson: 'Ritesh Agarwal',
+      officeAddress: 'Flat No B-1106, Urban Space Phase 1, Survey No 25, NIBM Road, Mohammadwadi, Haveli, Pune, Maharashtra, 411060',
+      contactNo: '+91 7030151276',
+      emailId: 'support@fortunekraftconsultancy.com',
+      workingHours: 'Mon–Fri, 10:00 AM – 6:00 PM',
+    },
   ];
 
   return (
@@ -93,8 +128,9 @@ export default function GrievanceRedressalPage() {
         <div className="bg-white rounded-2xl p-8 md:p-12 mb-12 shadow-sm">
           <h3 className="font-display text-2xl text-[#0A1628] font-bold mb-4">Escalation Matrix</h3>
           <div className="w-20 h-1 bg-[#F0A500] mb-8" />
-          
-          <div className="overflow-x-auto">
+
+          {/* Desktop Table */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
                 <tr className="bg-[#0A1628] text-white">
@@ -108,28 +144,45 @@ export default function GrievanceRedressalPage() {
               </thead>
               <tbody>
                 {escalationList.map((item, index) => (
-                  <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#F8F9FA]"}>
+                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FA]'}>
                     <td className="py-4 px-6 border-b border-gray-100 font-medium text-[#0A1628]">{item.designation}</td>
-                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] text-center">————</td>
-                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] text-center">————</td>
-                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] text-center">————</td>
-                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] text-center">————</td>
-                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] whitespace-nowrap">{item.hours}</td>
+                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E]">{item.contactPerson}</td>
+                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] text-sm">{item.officeAddress}</td>
+                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] whitespace-nowrap">
+                      <a href={`tel:${item.contactNo.replace(/\s/g, '')}`} className="hover:text-[#F0A500] transition-colors">{item.contactNo}</a>
+                    </td>
+                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E]">
+                      <a href={`https://mail.google.com/mail/?view=cm&to=${item.emailId}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#F0A500] transition-colors">{item.emailId}</a>
+                    </td>
+                    <td className="py-4 px-6 border-b border-gray-100 text-[#23344E] whitespace-nowrap">{item.workingHours}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="text-[#23344E]/60 text-sm mt-4 italic">
-            * Contact details will be updated shortly.
-          </p>
+
+          {/* Mobile Cards */}
+          <div className="md:hidden flex flex-col gap-4">
+            {escalationList.map((item, index) => (
+              <div key={index} className="border border-gray-200 rounded-xl p-5 bg-[#F8F9FA]">
+                <p className="font-bold text-[#0A1628] text-lg mb-3">{item.designation}</p>
+                <div className="space-y-2 text-[14px] text-[#23344E]">
+                  <p><span className="font-semibold">Contact Person:</span> {item.contactPerson}</p>
+                  <p><span className="font-semibold">Address:</span> {item.officeAddress}</p>
+                  <p><span className="font-semibold">Phone:</span> <a href={`tel:${item.contactNo.replace(/\s/g, '')}`} className="hover:text-[#F0A500] transition-colors">{item.contactNo}</a></p>
+                  <p><span className="font-semibold">Email:</span> <a href={`https://mail.google.com/mail/?view=cm&to=${item.emailId}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#F0A500] transition-colors break-all">{item.emailId}</a></p>
+                  <p><span className="font-semibold">Working Hours:</span> {item.workingHours}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Still Not Satisfied Section */}
         <div className="mb-8">
           <h3 className="font-display text-2xl text-[#0A1628] font-bold mb-4">Still Not Satisfied?</h3>
           <div className="w-20 h-1 bg-[#F0A500] mb-8" />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Step 1 */}
             <div className="bg-white rounded-2xl p-8 shadow-sm flex flex-col h-full border-t-4 border-[#F0A500]">

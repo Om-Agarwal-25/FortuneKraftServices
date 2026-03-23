@@ -55,7 +55,7 @@ function ServicesContent(): JSX.Element {
             <span>Our Services</span>
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6">Our Services</h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">Explore our tailored advisory plans, designed to match your trading style and risk appetite.</p>
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">Explore our research service plans, designed to match your trading style and risk appetite.</p>
         </div>
       </section>
 
@@ -77,7 +77,7 @@ function ServicesContent(): JSX.Element {
               </div>
               <h3 className="text-white font-display text-2xl font-bold mb-4">Intraday Alpha</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
-                Cash-market intraday advisory for active traders. Capture short-term opportunities within the same trading day with 1–2 high-conviction trade ideas daily.
+                Cash-market intraday research service for active traders. Capture short-term opportunities within the same trading day with 1–2 research-backed trade ideas daily.
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
                 <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">1–2 Trades/Day</span>
@@ -101,7 +101,7 @@ function ServicesContent(): JSX.Element {
               </div>
               <h3 className="text-white font-display text-2xl font-bold mb-4">BTST Alpha</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
-                Buy Today Sell Tomorrow advisory for traders seeking overnight momentum opportunities. 1 high-conviction trade issued daily between 2:45–3:15 PM.
+                Buy Today Sell Tomorrow research service for traders seeking overnight momentum opportunities. 1 research-backed trade issued daily between 2:45–3:15 PM.
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
                 <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">1 Trade/Day</span>
@@ -125,7 +125,7 @@ function ServicesContent(): JSX.Element {
               </div>
               <h3 className="text-white font-display text-2xl font-bold mb-4">Positional Alpha</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
-                Short-term positional advisory for traders who prefer holding stocks for days to weeks. 3–4 carefully researched opportunities per month.
+                Short-term positional research service for traders who prefer holding stocks for days to weeks. 3–4 carefully researched opportunities per month.
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
                 <span className="text-xs text-white/70 bg-white/5 border border-white/10 px-2 py-1 rounded">3–4 Trades/Month</span>

@@ -23,7 +23,7 @@ export const faqs: FaqItem[] = [
     id: 'faq-4',
     category: 'About Services',
     question: 'What is your historical accuracy rate?',
-    answer: 'We have maintained a historical accuracy rate of over 95% on our trade calls since 2017. While past performance does not guarantee future returns, our track record reflects our rigorous research process.',
+    answer: 'Our research team follows a structured and disciplined methodology to identify trade setups with favourable risk-reward ratios. While past performance does not guarantee future returns, our process is designed to provide well-researched, technically sound trade ideas.',
   },
   {
     id: 'faq-5',
