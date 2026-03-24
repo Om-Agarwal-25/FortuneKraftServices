@@ -17,7 +17,7 @@ import {
   Moon,
 } from "lucide-react";
 import type { Testimonial, Stat, WhyChooseCard } from "@/types";
-const StatsCounter = dynamic(() => import("@/components/StatsCounter"), { ssr: false });
+// const StatsCounter = dynamic(() => import("@/components/StatsCounter"), { ssr: false });
 import {
   HeroButtons,
   AnimatedWhyCard,
@@ -53,9 +53,9 @@ const WHY_CHOOSE_CARDS: WhyChooseCard[] = [
   },
   {
     icon: "Users",
-    title: "10,000+ Happy Clients",
+    title: "21 Days Grievance Redressal",
     description:
-      "A growing community of investors who have benefited from our research guidance.",
+      "We value your trust and are committed to addressing any concerns or complaints promptly and transparently.",
   },
   {
     icon: "BarChart2",
@@ -66,7 +66,7 @@ const WHY_CHOOSE_CARDS: WhyChooseCard[] = [
 ];
 
 const STATS: Stat[] = [
-  { value: "10K+", label: "Active Traders Enrolled" },
+  { value: "7+", label: "Years of Experience" },
   { value: "3", label: "Premium Services" },
   { value: "50M+", label: "Wealth Crafted (INR)" },
   { value: "21", label: "Day Grievance Resolution" },
@@ -342,7 +342,7 @@ export default function Home(): JSX.Element {
       </section>
 
       {/* SECTION 6: STATS BANNER */}
-      <section className="py-20 bg-gradient-to-r from-[#0A1628] to-[#1a3a5c] relative">
+      {/* <section className="py-20 bg-gradient-to-r from-[#0A1628] to-[#1a3a5c] relative">
         <div className="absolute inset-0 bg-black/20" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -355,7 +355,7 @@ export default function Home(): JSX.Element {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 7: TESTIMONIALS */}
       <section className="py-24 bg-[#F8F9FA]">
@@ -365,7 +365,7 @@ export default function Home(): JSX.Element {
               What Our Clients Say
             </h2>
             <p className="text-gray-600">
-              The trust of over 10,000 active traders fuels our commitment.
+              The trust of our active traders fuels our commitment.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

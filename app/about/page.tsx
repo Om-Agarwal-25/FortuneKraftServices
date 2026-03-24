@@ -53,7 +53,6 @@ export default function AboutPage() {
                 }}
               />
               <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                <span className="text-gold/60 text-sm tracking-widest uppercase font-semibold mb-2">Est.</span>
                 <span className="font-display text-7xl lg:text-[96px] leading-none mb-6 font-bold"
                   style={{
                     background: 'linear-gradient(135deg, #F0A500, #FFD166, #c47f00)',
@@ -62,11 +61,11 @@ export default function AboutPage() {
                     backgroundClip: 'text',
                   }}
                 >
-                  2019
+                  7+
                 </span>
                 <div className="w-16 h-px bg-gold/50 mb-6" />
                 <span className="text-white uppercase tracking-[0.2em] text-sm font-medium">
-                  7+ Years of Excellence
+                  Years of Experience
                 </span>
               </div>
             </div>
@@ -84,14 +83,43 @@ export default function AboutPage() {
 
             <div className="flex flex-col gap-6 text-[#2A3B54] text-base leading-relaxed">
               <p>
-                FortuneKraft Consultancy was founded in 2019 by a team of seasoned market veterans with a combined experience of over 20 years in Indian equity markets. What started as a small research practice has grown into one of India&apos;s most trusted SEBI-registered research analyst firms.
+                With over 7 years of hands-on experience in the financial markets, the team at
+                <strong> FortuneKraft Consultancy</strong> has successfully navigated every major market phase —
+                from the sharp volatility of the COVID crash to the powerful bull run that followed,
+                along with the extended sideways markets of 2021–2022.
               </p>
+
               <p>
-                Our founders witnessed firsthand how retail investors struggled to navigate the complexities of the stock market without reliable, research-backed guidance. FortuneKraft was built to bridge that gap — delivering institutional-quality research to everyday investors at an accessible price.
+                This diverse exposure has built a deep understanding of price behavior across all
+                market conditions — trending, volatile, and consolidating — enabling us to adapt
+                strategies with precision and consistency.
               </p>
+
               <p>
-                Today, we serve over 10,000 active clients across India, with a commitment to transparency, compliance, and disciplined research-backed recommendations that has never wavered.
+                Our experience spans working as a proprietary trader, managing capital with strict
+                risk discipline, as well as serving as a research analyst at a well-reputed advisory firm.
+                This blend of real-market execution and institutional research ensures that our
+                insights are practical, data-driven, and performance-oriented.
               </p>
+
+              <p className="font-bold text-[#0A1628] text-lg">
+                What truly sets us apart is leadership.
+              </p>
+
+              <p>
+                Our Head Research Analyst is a <strong>Chartered Wealth Manager (CWM)</strong> and
+                has also completed the <strong>Chartered Market Technician (CMT)</strong> program —
+                combining deep expertise in wealth creation with advanced technical market analysis.
+              </p>
+
+              <div>
+                <p className="mb-3 font-semibold">At FortuneKraft Consultancy, we are committed to delivering:</p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>High-probability trade opportunities</li>
+                  <li>Disciplined risk management frameworks</li>
+                  <li>Clear, actionable, and research-backed insights</li>
+                </ul>
+              </div>
             </div>
           </ClientComps.SlideIn>
         </div>
@@ -201,7 +229,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 5 - ACHIEVEMENTS / STATS */}
-      <ClientComps.StatsSection />
+      {/* <ClientComps.StatsSection /> */}
 
       {/* SECTION 6 - CTA BANNER */}
       <ClientComps.CtaBanner />

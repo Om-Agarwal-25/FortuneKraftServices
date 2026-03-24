@@ -123,19 +123,19 @@ export function CheckFeature({ title, description }: { title: string, descriptio
 // Reuse StatsCounter
 export function StatsSection() {
   const stats = [
-    { value: '10000', label: 'Active Investors Served', suffix: '+' },
+    // { value: '10000', label: 'Active Investors Served', suffix: '+' },
     { value: '21', label: 'Day Grievance Resolution', suffix: '' },
-    { value: '8', label: 'Years in the Market', suffix: '+' },
+    { value: '7', label: 'Years in the Market', suffix: '+' },
     { value: '3', label: 'Premium Services', suffix: '' },
   ]
-  
+
   return (
     <section className="py-20 bg-[#0A1628] border-b border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gold/5 opacity-5" />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {stats.map((stat, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -162,7 +162,7 @@ export function CtaBanner() {
         <ScaleIn className="bg-navy rounded-3xl p-12 lg:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-gold opacity-10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
-          
+
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
               Ready to Trade Smarter?

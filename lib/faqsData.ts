@@ -11,7 +11,7 @@ export const faqs: FaqItem[] = [
     id: 'faq-2',
     category: 'About Services',
     question: 'Are you SEBI registered?',
-    answer: 'Yes, we are a fully compliant, SEBI-registered Research Analyst firm (Registration Number: INH000XXXXX). Every recommendation we provide is backed by thorough research and adheres to SEBI regulations.',
+    answer: 'Yes, we are a fully compliant, SEBI-registered Research Analyst firm (Registration Number: INH000025221). Every recommendation we provide is backed by thorough research and adheres to SEBI regulations.',
   },
   {
     id: 'faq-3',
