@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Check, Zap, Users, AlertTriangle, Info, Star, Bell } from 'lucide-react'
-import type { Service, ApiServiceResponse, ModalMode } from '@/types'
+import type { Service, ModalMode } from '@/types'
+import type { TechnotronProgram, TechnotronPricingPlan } from '@/types/api'
 import { serviceDescriptions } from '@/lib/serviceDescriptions'
 
 interface ServiceModalProps {
@@ -12,13 +13,14 @@ interface ServiceModalProps {
   onClose: () => void
 }
 
-type FetchState =
+type BuyFetchState =
   | { status: 'loading' }
-  | { status: 'success'; data: ApiServiceResponse }
-  | { status: 'error' }
+  | { status: 'success'; program: TechnotronProgram }
+  | { status: 'error'; message?: string }
 
 export default function ServiceModal({ service, mode, onClose }: ServiceModalProps): JSX.Element {
-  const [fetchState, setFetchState] = useState<FetchState>({ status: 'loading' })
+  const [buyState, setBuyState] = useState<BuyFetchState>({ status: 'loading' })
+  const [selectedPlan, setSelectedPlan] = useState<TechnotronPricingPlan | null>(null)
 
   // Get the service family name for description lookup
   const familyName = service.title.split(' — ')[0] ?? ''
@@ -30,11 +32,20 @@ export default function ServiceModal({ service, mode, onClose }: ServiceModalPro
     async function fetchData(): Promise<void> {
       try {
         const res = await fetch(`/api/get-service?serviceId=${encodeURIComponent(service.id)}`)
-        if (!res.ok) throw new Error('Failed')
-        const data: ApiServiceResponse = await res.json() as ApiServiceResponse
-        setFetchState({ status: 'success', data })
-      } catch {
-        setFetchState({ status: 'error' })
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const data = await res.json() as { matched: boolean; program?: TechnotronProgram; programs?: TechnotronProgram[] }
+
+        if (data.matched && data.program) {
+          setBuyState({ status: 'success', program: data.program })
+          // Auto-select first non-trial plan
+          const firstPlan = data.program.pricing.find((p) => !p.trialPack) ?? data.program.pricing[0] ?? null
+          setSelectedPlan(firstPlan)
+        } else {
+          setBuyState({ status: 'error', message: 'Service details not available at this time.' })
+        }
+      } catch (error) {
+        console.error('Buy fetch error:', error)
+        setBuyState({ status: 'error' })
       }
     }
     void fetchData()
@@ -227,74 +238,159 @@ export default function ServiceModal({ service, mode, onClose }: ServiceModalPro
               </>
             ) : mode === 'buy' ? (
               <>
-                {/* Buy Mode — API fetch */}
-                {fetchState.status === 'loading' && (
+                {/* Loading skeleton */}
+                {buyState.status === 'loading' && (
                   <div className="flex flex-col gap-4 animate-pulse">
-                    <div className="h-8 bg-gray-100 rounded-lg w-3/4" />
+                    <div className="h-6 bg-gray-100 rounded-lg w-2/3" />
                     <div className="h-4 bg-gray-100 rounded w-full" />
-                    <div className="h-4 bg-gray-100 rounded w-5/6" />
-                    <div className="h-12 bg-gray-100 rounded-xl w-full" />
+                    <div className="grid grid-cols-2 gap-3">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="h-24 bg-gray-100 rounded-xl" />
+                      ))}
+                    </div>
+                    <div className="h-12 bg-gray-100 rounded-xl" />
                   </div>
                 )}
-                {fetchState.status === 'error' && (
+
+                {/* Error state */}
+                {buyState.status === 'error' && (
                   <div className="text-center py-8">
+                    <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-4">
+                      <AlertTriangle size={28} className="text-red-400" />
+                    </div>
                     <p className="text-navy font-semibold mb-2">Unable to load purchase details</p>
-                    <p className="text-gray-500 text-sm mb-6">Please contact us directly to subscribe to this plan.</p>
-                    <div className="flex gap-3 justify-center">
-                      <a
-                        href="https://mail.google.com/mail/?view=cm&to=support@fortunekraftconsultancy.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gold text-navy font-bold px-6 py-3 rounded-full hover:bg-gold-light transition-colors"
-                      >
-                        Email Us
-                      </a>
+                    <p className="text-gray-500 text-sm mb-6">
+                      {buyState.message ?? 'Please contact us directly to subscribe to this plan.'}
+                    </p>
+                    <div className="flex gap-3 justify-center flex-wrap">
                       <a
                         href="https://wa.me/917030151276"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-navy text-white font-bold px-6 py-3 rounded-full hover:bg-navy-light transition-colors"
+                        className="bg-gold text-navy font-bold px-6 py-3 rounded-full hover:bg-gold-light transition-colors"
                       >
                         WhatsApp Us
+                      </a>
+                      <a
+                        href="https://mail.google.com/mail/?view=cm&to=support@fortunekraftconsultancy.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-navy text-white font-bold px-6 py-3 rounded-full hover:bg-navy-light transition-colors"
+                      >
+                        Email Us
                       </a>
                     </div>
                   </div>
                 )}
-                {fetchState.status === 'success' && (
+
+                {/* Success state */}
+                {buyState.status === 'success' && (
                   <div className="space-y-6">
-                    <p className="text-[#23344E] text-[15px] leading-relaxed">{fetchState.data.description}</p>
-                    {fetchState.data.features && (
-                      <div className="grid grid-cols-1 gap-2">
-                        {fetchState.data.features.map((f) => (
-                          <div key={f} className="flex items-center gap-3 p-3 bg-[#F8F9FA] rounded-lg">
-                            <Check size={14} className="text-gold flex-shrink-0" />
-                            <p className="text-[#23344E] text-[14px]">{f}</p>
+                    {/* Program short details */}
+                    <p className="text-[#23344E] text-[15px] leading-relaxed">
+                      {buyState.program.programShortDetails}
+                    </p>
+
+                    {/* Plan selector */}
+                    <div>
+                      <h3 className="text-navy font-bold text-lg mb-3">Select Your Plan</h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {buyState.program.pricing.map((plan) => {
+                          const isSelected = selectedPlan?.planId === plan.planId
+                          const finalPrice = plan.gstToBeApplied
+                            ? Math.round(plan.discountedPrice * (1 + plan.gstPercentage / 100))
+                            : plan.discountedPrice
+                          const originalPrice = plan.gstToBeApplied
+                            ? Math.round(plan.actualPrice * (1 + plan.gstPercentage / 100))
+                            : plan.actualPrice
+                          const hasDiscount = plan.actualPrice !== plan.discountedPrice
+                          const discountPct = hasDiscount
+                            ? Math.round(((plan.actualPrice - plan.discountedPrice) / plan.actualPrice) * 100)
+                            : 0
+
+                          return (
+                            <button
+                              key={plan.planId}
+                              onClick={() => setSelectedPlan(plan)}
+                              className={`relative p-4 rounded-xl border-2 text-left transition-all ${
+                                isSelected
+                                  ? 'border-gold bg-gold/10'
+                                  : 'border-[#0A1628]/10 bg-[#F8F9FA] hover:border-gold/50'
+                              }`}
+                            >
+                              {plan.trialPack && (
+                                <span className="absolute top-2 right-2 text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">
+                                  Trial
+                                </span>
+                              )}
+                              {hasDiscount && !plan.trialPack && (
+                                <span className="absolute top-2 right-2 text-xs bg-gold/20 text-gold-dark font-semibold px-2 py-0.5 rounded-full">
+                                  {discountPct}% OFF
+                                </span>
+                              )}
+                              <p className="text-navy font-bold text-lg">
+                                ₹{finalPrice.toLocaleString('en-IN')}
+                              </p>
+                              {hasDiscount && (
+                                <p className="text-gray-400 text-xs line-through">
+                                  ₹{originalPrice.toLocaleString('en-IN')}
+                                </p>
+                              )}
+                              <p className="text-gray-600 text-sm mt-1">{plan.displayDuration}</p>
+                              {plan.gstToBeApplied && (
+                                <p className="text-gray-400 text-xs mt-0.5">Incl. {plan.gstPercentage}% GST</p>
+                              )}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Selected plan CTA */}
+                    {selectedPlan && (
+                      <div className="bg-navy rounded-xl p-5 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-white/60 text-sm">{selectedPlan.displayDuration} Plan</p>
+                            <p className="text-gold font-bold text-2xl font-display">
+                              ₹{(selectedPlan.gstToBeApplied
+                                ? Math.round(selectedPlan.discountedPrice * (1 + selectedPlan.gstPercentage / 100))
+                                : selectedPlan.discountedPrice
+                              ).toLocaleString('en-IN')}
+                            </p>
+                            {selectedPlan.gstToBeApplied && (
+                              <p className="text-white/40 text-xs">Inclusive of {selectedPlan.gstPercentage}% GST</p>
+                            )}
                           </div>
-                        ))}
+                          <a
+                            href={buyState.program.pricePageLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-gold text-navy font-bold px-6 py-3 rounded-full hover:bg-gold-light transition-colors text-sm"
+                          >
+                            Subscribe Now →
+                          </a>
+                        </div>
                       </div>
                     )}
-                    <div className="flex gap-3">
-                      {fetchState.data.whatsappNumber && (
-                        <a
-                          href={`https://wa.me/${fetchState.data.whatsappNumber}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 bg-gold text-navy font-bold py-3 rounded-full text-center hover:bg-gold-light transition-colors"
-                        >
-                          WhatsApp to Buy
-                        </a>
-                      )}
-                      {fetchState.data.purchaseUrl && (
-                        <a
-                          href={fetchState.data.purchaseUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 bg-navy text-white font-bold py-3 rounded-full text-center hover:bg-navy-light transition-colors"
-                        >
-                          Subscribe Now
-                        </a>
-                      )}
-                    </div>
+
+                    {/* Trial pack note if available */}
+                    {buyState.program.hasTrialPack && (
+                      <div className="border border-green-200 bg-green-50 rounded-xl p-4 flex gap-3">
+                        <Check size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-green-800 font-semibold text-sm">Trial Pack Available</p>
+                          <p className="text-green-700 text-xs mt-0.5">
+                            Try this service for ₹{buyState.program.trialPackPrice} before committing to a full plan.
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Risk disclaimer */}
+                    <p className="text-gray-400 text-xs leading-relaxed text-center">
+                      Investment in securities market are subject to market risks. Read all related documents carefully before investing. Past performance is not indicative of future results.
+                    </p>
                   </div>
                 )}
               </>
