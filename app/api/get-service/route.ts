@@ -1,6 +1,4 @@
-import type { NextRequest } from 'next/server'
-
-export async function GET(request: NextRequest): Promise<Response> {
+export async function GET(): Promise<Response> {
   const apiUrl = process.env.TECHNOTRON_API_URL
   const apiId = process.env.TECHNOTRON_API_ID
   const apiKey = process.env.TECHNOTRON_API_KEY
