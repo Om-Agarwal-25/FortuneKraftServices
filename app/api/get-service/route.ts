@@ -13,14 +13,28 @@ export async function GET(request: NextRequest): Promise<Response> {
     )
   }
 
-  try {
-    const apiUrl = process.env.TECHNOTRON_API_URL
-    const apiId = process.env.TECHNOTRON_API_ID
-    const apiKey = process.env.TECHNOTRON_API_KEY
+  const apiUrl = process.env.TECHNOTRON_API_URL
+  const apiId = process.env.TECHNOTRON_API_ID
+  const apiKey = process.env.TECHNOTRON_API_KEY
 
-    if (!apiUrl || !apiId || !apiKey) {
-      throw new Error('Missing API configuration')
-    }
+  // Log what we have — this will show in Vercel logs
+  console.log('API Config check:', {
+    hasUrl: !!apiUrl,
+    hasId: !!apiId,
+    hasKey: !!apiKey,
+    url: apiUrl,
+  })
+
+  if (!apiUrl || !apiId || !apiKey) {
+    console.error('Missing env vars:', { apiUrl, apiId: !!apiId, apiKey: !!apiKey })
+    return NextResponse.json<ApiErrorResponse>(
+      { error: 'Missing API configuration' },
+      { status: 500 }
+    )
+  }
+
+  try {
+    console.log('Calling Technotron API...')
 
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -36,9 +50,15 @@ export async function GET(request: NextRequest): Promise<Response> {
       cache: 'no-store',
     })
 
-    const data: TechnotronApiResponse = (await response.json()) as TechnotronApiResponse
+    console.log('Technotron response status:', response.status)
+
+    const rawText = await response.text()
+    console.log('Technotron raw response:', rawText.substring(0, 500))
+
+    const data = JSON.parse(rawText) as TechnotronApiResponse
 
     if (!data.status) {
+      console.error('Technotron API error:', data.message)
       return NextResponse.json<ApiErrorResponse>(
         { error: data.message },
         { status: response.status }
@@ -93,7 +113,10 @@ export async function GET(request: NextRequest): Promise<Response> {
     })
 
   } catch (error) {
-    console.error('Technotron API error:', error instanceof Error ? error.message : error)
+    console.error('Full error details:', {
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    })
     return NextResponse.json<ApiErrorResponse>(
       { error: 'Failed to fetch service data' },
       { status: 500 }
