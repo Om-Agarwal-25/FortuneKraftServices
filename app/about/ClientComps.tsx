@@ -104,6 +104,14 @@ export function StaggerContainer({ children, className = '' }: { children: React
   )
 }
 
+export function StaggerItem({ children, className = '' }: { children: React.ReactNode, className?: string }) {
+  return (
+    <motion.div variants={itemVariants} className={className}>
+      {children}
+    </motion.div>
+  )
+}
+
 export function CheckFeature({ title, description }: { title: string, description: string }) {
   return (
     <motion.div variants={itemVariants} className="flex gap-4">

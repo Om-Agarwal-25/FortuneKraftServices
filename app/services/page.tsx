@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
-import type { Service, ModalMode } from '@/types'
+import type { Service } from '@/types'
 import { services } from '@/lib/servicesData'
 import ServiceCard from '@/components/ServiceCard'
 import ServiceModal from '@/components/ServiceModal'
@@ -62,9 +62,6 @@ function ServicesContent(): JSX.Element {
 
   const [activeCategory, setActiveCategory] = useState<ServiceCategory>('All')
   const [selectedService, setSelectedService] = useState<Service | null>(null)
-  const [selectedRealPlan, setSelectedRealPlan] = useState<CleanPlan | null>(null)
-  const [selectedRealProgram, setSelectedRealProgram] = useState<CleanProgram | null>(null)
-  const [modalMode, setModalMode] = useState<ModalMode>('description')
   const [fetchState, setFetchState] = useState<FetchState>({ status: 'loading' })
 
   useEffect(() => {
@@ -95,15 +92,18 @@ function ServicesContent(): JSX.Element {
   }, [activeCategory])
 
   const handleDescriptionClick = (service: Service): void => {
-    setModalMode('description')
     setSelectedService(service)
   }
 
-  const handleBuy = (service: Service, plan: CleanPlan | null, program: CleanProgram | null): void => {
-    setSelectedService(service)
-    setSelectedRealPlan(plan)
-    setSelectedRealProgram(program)
-    setModalMode('buy')
+  function handleBuy(_service: Service, plan: CleanPlan | null, program: CleanProgram | null): void {
+    if (program?.pricePageLink) {
+      const directUrl = plan?.planId
+        ? `${program.pricePageLink}&planId=${plan.planId}`
+        : program.pricePageLink
+      window.open(directUrl, '_blank', 'noopener,noreferrer')
+    } else {
+      window.open('https://services.fortunekraftconsultancy.com', '_blank', 'noopener,noreferrer')
+    }
   }
 
   const closeModal = (): void => {
@@ -255,7 +255,6 @@ function ServicesContent(): JSX.Element {
                     realProgram={program}
                     onDescriptionClick={handleDescriptionClick}
                     onBuyClick={(srv) => handleBuy(srv, plan, program)}
-                    index={i}
                     isLoadingPrices={fetchState.status === 'loading'}
                   />
                 </motion.div>
@@ -268,9 +267,9 @@ function ServicesContent(): JSX.Element {
       {selectedService && (
         <ServiceModal
           service={selectedService}
-          mode={modalMode}
-          realPlan={selectedRealPlan}
-          realProgram={selectedRealProgram}
+          mode="description"
+          realPlan={null}
+          realProgram={null}
           onClose={closeModal}
         />
       )}

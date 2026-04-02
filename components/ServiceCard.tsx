@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
 import type { Service } from "@/types";
 
 import type { CleanProgram, CleanPlan } from "@/app/api/get-all-services/route";
@@ -13,7 +13,6 @@ interface ServiceCardProps {
   isLoadingPrices: boolean;
   onDescriptionClick: (service: Service) => void;
   onBuyClick: (service: Service) => void;
-  index: number;
 }
 
 export default function ServiceCard({
@@ -108,9 +107,9 @@ export default function ServiceCard({
         <div className="space-y-3 mt-auto">
           <button
             onClick={() => onBuyClick(service)}
-            className="w-full bg-gold hover:bg-gold-light text-navy font-bold py-3.5 rounded-xl transition-colors text-sm"
+            className="w-full bg-gold hover:bg-gold-light text-navy font-bold py-3.5 rounded-xl transition-colors text-sm flex items-center justify-center gap-2"
           >
-            Buy Now
+            Buy Now <ExternalLink size={14} />
           </button>
           <button
             onClick={() => onDescriptionClick(service)}

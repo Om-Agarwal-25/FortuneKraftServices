@@ -24,13 +24,10 @@ const USEFUL_LINKS: NavLink[] = [
 ];
 
 const SERVICE_LINKS: NavLink[] = [
-  { label: "Equity Research", href: "/services?tab=Equity Research" },
-  { label: "Market insights", href: "/services?tab=Market insights" },
-  {
-    label: "Investment recommendations",
-    href: "/services?tab=Investment recommendations",
-  },
-  { label: "Demo Plan", href: "/services?tab=Demo" },
+  { label: 'Intraday Alpha', href: '/services?tab=Intraday+Alpha' },
+  { label: 'BTST Alpha', href: '/services?tab=BTST+Alpha' },
+  { label: 'Positional Alpha', href: '/services?tab=Positional+Alpha' },
+  { label: 'Trial Plans', href: '/services?tab=Trial+Plans' },
 ];
 
 interface SocialLink {

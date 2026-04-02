@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import * as ClientComps from './ClientComps'
 
 export const metadata: Metadata = {
@@ -39,89 +40,115 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 2 - OUR STORY */}
-      <section className="py-20 lg:py-28 bg-white container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      {/* SECTION 2 - OUR STORY / MEET THE FOUNDER */}
+      <section className="py-20 lg:py-28 pb-10 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-12">
 
-          {/* Left Column (40%) */}
-          <ClientComps.SlideIn direction="left" className="lg:col-span-5 relative">
-            <div className="bg-[#0A1628] rounded-2xl p-12 lg:p-14 relative overflow-hidden shadow-2xl">
-              <div
-                className="absolute inset-0 opacity-[0.03]"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(45deg, #F0A500 0px, #F0A500 1px, transparent 1px, transparent 40px)`,
-                }}
-              />
-              <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                <span className="font-display text-7xl lg:text-[96px] leading-none mb-6 font-bold"
-                  style={{
-                    background: 'linear-gradient(135deg, #F0A500, #FFD166, #c47f00)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  7+
-                </span>
-                <div className="w-16 h-px bg-gold/50 mb-6" />
-                <span className="text-white uppercase tracking-[0.2em] text-sm font-medium">
-                  Years of Experience
-                </span>
+            {/* Left column — photo + credentials */}
+            <ClientComps.SlideIn direction="left" className="relative w-full lg:w-[45%] flex-shrink-0">
+              <div className="relative max-w-[380px] mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/ritesh-agarwal.jpg"
+                  alt="Ritesh Agarwal — Founder, Fortune Kraft Consultancy"
+                  width={380}
+                  height={440}
+                  className="w-full object-cover object-top"
+                  priority
+                />
+                {/* Dark gradient overlay at bottom */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-32"
+                  style={{ background: 'linear-gradient(to top, rgba(10,22,40,0.9), transparent)' }}
+                />
+                {/* Name overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-white font-display font-bold text-2xl">Ritesh Agarwal</p>
+                  <p className="text-gold text-sm tracking-wide">Founder &amp; Research Analyst</p>
+                </div>
               </div>
-            </div>
-          </ClientComps.SlideIn>
 
-          {/* Right Column (60%) */}
-          <ClientComps.SlideIn direction="right" className="lg:col-span-7">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-8 h-px bg-gold" />
-              <span className="text-gold text-sm font-bold tracking-widest uppercase">Our Story</span>
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl text-[#0A1628] font-bold mb-8 leading-tight">
-              From a Vision to India&apos;s Trusted Research Firm
-            </h2>
+              {/* Credentials card */}
+              <ClientComps.ScaleIn delay={0.3} className="absolute bottom-[-24px] right-[0px] lg:right-[-24px] bg-white rounded-2xl p-5 shadow-xl border border-[#0A1628]/10 w-[180px]">
+                <p className="text-navy font-bold text-sm mb-3">Credentials</p>
+                <div className="space-y-2">
+                  {['BBA Graduate', 'CWM Certified', 'CMT Certified', 'SEBI Registered RA'].map((cred) => (
+                    <div key={cred} className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                      <p className="text-[#23344E] text-xs">{cred}</p>
+                    </div>
+                  ))}
+                </div>
+              </ClientComps.ScaleIn>
+            </ClientComps.SlideIn>
 
-            <div className="flex flex-col gap-6 text-[#2A3B54] text-base leading-relaxed">
-              <p>
-                With over 7 years of hands-on experience in the financial markets, the team at
-                <strong> FortuneKraft Consultancy</strong> has successfully navigated every major market phase —
-                from the sharp volatility of the COVID crash to the powerful bull run that followed,
-                along with the extended sideways markets of 2021–2022.
+            {/* Right column — bio content */}
+            <ClientComps.SlideIn direction="right" className="w-full lg:w-[55%] flex flex-col justify-center pt-8 lg:pt-0">
+              {/* Section label */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-px bg-gold" />
+                <p className="text-gold text-xs font-semibold uppercase tracking-[0.2em]">Meet the Founder</p>
+              </div>
+
+              <h2 className="font-display text-3xl md:text-4xl text-navy font-bold mb-2 leading-tight">
+                Ritesh Agarwal
+              </h2>
+              <p className="text-gold font-medium mb-6 tracking-wide">
+                Founder &amp; SEBI Registered Research Analyst
               </p>
 
-              <p>
-                This diverse exposure has built a deep understanding of price behavior across all
-                market conditions — trending, volatile, and consolidating — enabling us to adapt
-                strategies with precision and consistency.
-              </p>
+              <div className="w-16 h-1 bg-gold rounded-full mb-6" />
 
-              <p>
-                Our experience spans working as a proprietary trader, managing capital with strict
-                risk discipline, as well as serving as a research analyst at a well-reputed advisory firm.
-                This blend of real-market execution and institutional research ensures that our
-                insights are practical, data-driven, and performance-oriented.
-              </p>
+              <div className="space-y-4 text-[#23344E] text-[15px] leading-relaxed mb-8">
+                <p>
+                  Ritesh Agarwal is a finance professional with over 7 years of experience in the financial markets. He holds a Bachelor&apos;s degree in Business Administration and is a Chartered Wealth Manager (CWM) as well as a Chartered Market Technician (CMT).
+                </p>
+                <p>
+                  He has previously worked as a Research Analyst on Dalal Street and as a proprietary trader at Gemscap Global, gaining hands-on expertise in market analysis and trading strategies.
+                </p>
+                <p>
+                  In addition to his financial background, Ritesh is also a Reiki practitioner and a Vipassana meditator, bringing a balanced and disciplined approach to decision-making.
+                </p>
+              </div>
 
-              <p className="font-bold text-[#0A1628] text-lg">
-                What truly sets us apart is leadership.
-              </p>
-
-              <p>
-                Our Head Research Analyst is a <strong>Chartered Wealth Manager (CWM)</strong> and
-                has also completed the <strong>Chartered Market Technician (CMT)</strong> program —
-                combining deep expertise in wealth creation with advanced technical market analysis.
-              </p>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {[
+                  { value: '7+', label: 'Years in Financial Markets' },
+                  { value: '2', label: 'Professional Certifications' },
+                  { value: 'CWM', label: 'Chartered Wealth Manager' },
+                  { value: 'CMT', label: 'Chartered Market Technician' },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-[#F8F9FA] rounded-xl p-4 border border-[#0A1628]/10">
+                    <p className="text-navy font-bold text-2xl font-display">{stat.value}</p>
+                    <p className="text-[#23344E] text-sm">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
 
               <div>
-                <p className="mb-3 font-semibold">At FortuneKraft Consultancy, we are committed to delivering:</p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>High-probability trade opportunities</li>
-                  <li>Disciplined risk management frameworks</li>
-                  <li>Clear, actionable, and research-backed insights</li>
-                </ul>
+                <p className="text-navy font-semibold text-sm mb-3">Previous Experience</p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { label: 'Research Analyst — Dalal Street', dark: true },
+                    { label: 'Proprietary Trader — Gemscap Global', dark: true },
+                    { label: 'Reiki Practitioner', dark: false },
+                    { label: 'Vipassana Meditator', dark: false },
+                  ].map((tag) => (
+                    <span
+                      key={tag.label}
+                      className={`px-3 py-1.5 text-xs font-semibold rounded-full ${tag.dark
+                          ? 'bg-navy text-gold'
+                          : 'bg-[#F8F9FA] text-navy border border-[#0A1628]/10'
+                        }`}
+                    >
+                      {tag.label}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          </ClientComps.SlideIn>
+            </ClientComps.SlideIn>
+
+          </div>
         </div>
       </section>
 
